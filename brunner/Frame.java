@@ -19,8 +19,9 @@ public class Frame extends JFrame {
 		super("Datenbank");
 		gui= new GUI(c);
 		super.add(gui);
-		super.setSize(380, 1250);
-		super.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//super.setSize(380, 1250);
+		super.setExtendedState(super.MAXIMIZED_BOTH);//Macht eine fullscreen ansicht
+		super.setDefaultCloseOperation(super.EXIT_ON_CLOSE);
 		super.setVisible(true);
 		super.setLocationRelativeTo(null);
 	}
