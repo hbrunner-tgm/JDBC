@@ -1,10 +1,12 @@
 package brunner;
 
 import java.sql.*;
+
+import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 /**
- * Stelle eine verbinung zu einem Mysql-Server her
+ * Stelle eine Verbinung zu einem Mysql-Server her
  * @author helmuthbrunner
  */
 
@@ -54,8 +56,7 @@ public class Connect {
 		try {
 			c= mds.getConnection();
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
+			System.err.println("SQL-Exception");
 		}
 	
 	}
@@ -78,8 +79,7 @@ public class Connect {
 			s= c.createStatement();
 			rs= s.executeQuery(query);
 		}catch (SQLException e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
+			System.err.println("SQL-Exception");
 		}
 		
 		return rs;

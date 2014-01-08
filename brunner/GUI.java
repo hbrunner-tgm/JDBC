@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * Ein Klasse die ein Panel mit Komponeten erstellt.
+ * Ein Klasse die ein Panel mit Komponenten erstellt.
  * @author helmuthbrunner
  */
 
@@ -144,8 +144,11 @@ public class GUI extends JPanel {
 			table.setModel(model);
 
 		}catch (SQLException e) {
-			e.printStackTrace();
 			System.err.println("Fehler beim TextArea");
+		}catch (ArrayIndexOutOfBoundsException e) {
+			System.err.println("Fehler ArrayIndexOutOfBounds");
+		}catch (NullPointerException e) {
+			System.err.println("Fehler NullPointerException");
 		}
 	}
 
