@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -103,6 +105,7 @@ public class GUI extends JPanel {
 		super.add(panel, BorderLayout.CENTER);
 		super.add(scrollPane, BorderLayout.SOUTH);
 		//------
+		button.addKeyListener(new ActionHandler());
 	}
 
 	/**
@@ -169,7 +172,7 @@ public class GUI extends JPanel {
 	/**
 	 * Eine Klasse die sich um die Listerner kuemmert.
 	 */
-	public class ActionHandler implements ActionListener {
+	public class ActionHandler implements ActionListener, KeyListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -188,6 +191,35 @@ public class GUI extends JPanel {
 			if(b.getText().equals("Connect")) {
 				reconnect();
 			}
+		}
+
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+			
+			if(arg0.getKeyCode()==KeyEvent.VK_ENTER) {
+				
+				System.out.println("KeyPressed");
+				
+				if(check.check(query.getText() )) 
+					set= c.query(query.getText());
+				else
+					JOptionPane.showMessageDialog(null, ""+check.errom());
+
+				anzeigen();
+			}
+			
+		}
+
+		@Override
+		public void keyReleased(KeyEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyTyped(KeyEvent arg0) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 }
