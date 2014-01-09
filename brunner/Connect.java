@@ -93,11 +93,10 @@ public class Connect {
 		 * s.setString(1, "wert");
 		 * s.execute();
 		 */
-		
 	}
 	
 	/**
-	 * Schlie��t die Verbingung
+	 * Schließt die Verbingung
 	 */
 	public void exit() {
 		try {

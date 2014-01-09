@@ -75,10 +75,10 @@ public class GUI extends JPanel {
 
 		//--- Lables ---
 		lserver= new JLabel("Servername");
-		ldb= new JLabel("Database:");
-		luser= new JLabel("User:");
-		lpw= new JLabel("Password:");
-		lquery= new JLabel("Select Befehl:");
+		ldb= new JLabel("Datenbank:");
+		luser= new JLabel("Benutzer:");
+		lpw= new JLabel("Passwort:");
+		lquery= new JLabel("SQL - Befehl:");
 
 		//--- JTable ---
 		table = new JTable();
