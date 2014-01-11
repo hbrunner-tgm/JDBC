@@ -5,7 +5,7 @@ import org.apache.commons.cli.*;
 /**
  * Eine Klasse in der die Argument verarbeitet werden.
  * 
- * Die Klasse verwendet die http://commons.apache.org/proper/commons-cli/
+ * Die Klasse verwendet die http://commons.apache.org/proper/commons-cli/ commandline tool
  * 
  * @author helmuthbrunner
  *

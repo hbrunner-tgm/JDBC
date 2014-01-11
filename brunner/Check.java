@@ -9,21 +9,43 @@ import java.util.*;
  */
 public class Check {
 	
-	private List<String> l;
+	private String[] ja= {"select", "show", "describe", "desc"}, 
+					 nein= {"insert", "update", "delete", "alter"};
 
+	private String errom;
+	
 	/**
 	 * Ein Default - Konstruktor
 	 */
-	public Check() {		
+	public Check() {
 	}
 	
 	/**
-	 * Checkt den SQL- Befehl das mit keine inserts oder anderen Befehle nur als select.
+	 * Checkt den SQL- Befehl das mit keine inserts oder andere Befehle eingegeben werden.
 	 * @param query der SQL- Befehl
 	 * @return ob es ein gueltiger SQL - Befehl ist.
 	 */
 	public boolean check(String query) {//TODO Macht noch nichts
+		
+		if(query.contains(";")==true) {
+			this.errom="Bitte keinen Strichpunkt angeben!";
+			return false;
+		}
+		
+		for(String s: nein) {
+			if(query.contains(s)) {
+				this.errom= "Kein \""+s+"\" angeben!";
+				return false;
+			}
+		}
+		
+		for(String s: ja) {
+			if(query.contains(s)) {
+				return true;
+			}
+		}
 		return true;
+		
 	}
 	
 	/**
@@ -32,14 +54,14 @@ public class Check {
 	 * @return die Felder als Liste
 	 */
 	public List<String> felder(String query) {//TODO Funktioniert nicht richtig
-		l= new ArrayList<String>();
-		StringBuilder builder= new StringBuilder(query);
-		
-		for(int i=0; i<builder.length();i++) {
-			l.add( builder.substring(builder.indexOf(" "), builder.indexOf(" ", i)) );
-			System.out.println(builder.substring(builder.indexOf(" "), builder.indexOf(" ", i)));
-		}
-		
-		return l;
+		return null;
+	}
+	
+	/**
+	 * Gibt den Fehler Text aus zu dem
+	 * @return den Fehler Text des zugehörigen fehlers.
+	 */
+	public String errom() {
+		return errom;
 	}
 }

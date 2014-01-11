@@ -1,7 +1,6 @@
 package brunner;
 
 import java.sql.*;
-
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 /**
@@ -50,6 +49,7 @@ public class Connect {
 		mds.setUser(source.getUser());
 		mds.setPassword(source.getPassword());
 		mds.setDatabaseName(source.getDatabase());
+		System.out.println(mds.getPort());
 		
 		try {
 			c= mds.getConnection();
@@ -77,23 +77,33 @@ public class Connect {
 		try {
 			s= c.createStatement();
 			rs= s.executeQuery(query);
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
 		
 		return rs;
 		
+		/*
+		 * Preparde Statment.
+		 * 
+		 * select * from books where auther=?;
+		 * 
+		 * s= c.prepareStatment("hier einen Select");
+		 * s.setString(1, "wert");
+		 * s.execute();
+		 */
+		
 	}
 	
 	/**
-	 * Schließt die Verbingung
+	 * Schlie��t die Verbingung
 	 */
 	public void exit() {
 		try {
 			c.close();
 			c= null;
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
