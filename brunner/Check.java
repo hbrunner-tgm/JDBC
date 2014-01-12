@@ -3,9 +3,8 @@ package brunner;
 import java.util.*;
 
 /**
- * Prueft ein SQL- Statment und schneidet die Felder heraus.
+ * Prueft ein SQL- Statment.
  * @author helmuthbrunner
- *
  */
 public class Check {
 	
