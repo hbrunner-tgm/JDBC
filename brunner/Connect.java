@@ -2,11 +2,13 @@ package brunner;
 
 import java.sql.*;
 
+import javax.swing.JOptionPane;
+
 import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 /**
- * Stelle eine Verbinung zu einem Mysql-Server her
+ * Stelle eine Verbinung zu einem Server her.
  * @author helmuthbrunner
  */
 
@@ -17,22 +19,22 @@ public class Connect {
 	private MysqlDataSource mds;
 	private Statement s;
 	private ResultSet rs;
-	
+
 	/**
 	 * Default-Connection
 	 */
 	public Connect() {      
-        this.newConnection(new DataSource());
+		this.newConnection(new DataSource());
 	}
-	
+
 	/**
-	 * Connection
-	 * @param source
+	 * Neue Verbinung mit den angegeben Parametern aufbauen.
+	 * @param source die neuen Verbindungparameter
 	 */
 	public Connect(DataSource source) {
 		this.newConnection(source);
 	}
-	
+
 	/**
 	 * Stelle eine neue Verbindung zum Server her. Mit den jeweiligen Parametern.
 	 * @param source die jeweiligen Parameter
@@ -41,9 +43,9 @@ public class Connect {
 		this.source=source;
 		this.connect();
 	}
-	
+
 	/**
-	 * Eine Methode die die Verbinug zum Server herstellt.
+	 * Eine Methode die die Verbindnug zum Server herstellt.
 	 */
 	public void connect() {
 		mds= new MysqlDataSource();
@@ -51,16 +53,29 @@ public class Connect {
 		mds.setUser(source.getUser());
 		mds.setPassword(source.getPassword());
 		mds.setDatabaseName(source.getDatabase());
-		System.out.println(mds.getPort());
-		
+
 		try {
 			c= mds.getConnection();
 		} catch (SQLException e) {
-			System.err.println("SQL-Exception");
+			String fm="";
+			
+			if(e.getMessage().indexOf("Host")!=-1)
+				fm+= "\n" + "Hostname("+source.getServername()+") konnte nicht gefunden werden.";
+			if(e.getMessage().substring(0, 16).equals("Unknown database"))
+				fm+= "\n" + "Datenbank("+source.getDatabase()+") ist auf diesem Server nicht vorhanden";
+			if(e.getMessage().substring(0, 13).equals("Access denied"))
+				fm+= "\n" + "Benutzer("+source.getUser()+") oder Passwort("+source.getPassword()+") sind Falsch";
+		
+			
+			if(!fm.equals("")) {
+				
+				fm+= "\n\n"+ "Bitte die richtigen Parameter in die Textfelder eintragen und auf \"Connect\" klicken.";
+				
+				JOptionPane.showMessageDialog(null, fm);
+			}
 		}
-	
 	}
-	
+
 	/**
 	 * Die aktulle Verbingung zum Server.
 	 * @return
@@ -68,9 +83,9 @@ public class Connect {
 	public Connection getCurrentConnection() {
 		return c;
 	}
-	
+
 	/**
-	 * Gibt das Erebnis eines Selectes aus.
+	 * Gibt das Erebniss eines Selectes aus.
 	 * @param query der Select-Befehl
 	 * @return ein ResultSet Objekt
 	 */
@@ -79,22 +94,17 @@ public class Connect {
 			s= c.createStatement();
 			rs= s.executeQuery(query);
 		}catch (SQLException e) {
-			System.err.println("SQL-Exception");
+			//System.err.println("SQL-Exception -:- Connect:query");
+			String str= e.getMessage();
+			int i= (int) str.length()/2;
+			JOptionPane.showMessageDialog(null, str.subSequence(0, i)+"\n"+str.subSequence(i, e.getMessage().length()));
+		}catch (NullPointerException e) {
+			
 		}
-		
+
 		return rs;
-		
-		/*
-		 * Preparde Statment.
-		 * 
-		 * select * from books where auther=?;
-		 * 
-		 * s= c.prepareStatment("hier einen Select");
-		 * s.setString(1, "wert");
-		 * s.execute();
-		 */
 	}
-	
+
 	/**
 	 * Schließt die Verbingung
 	 */
@@ -103,8 +113,7 @@ public class Connect {
 			c.close();
 			c= null;
 		}catch (SQLException e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
+			System.err.println("Fehler in exit -:- Connect:exit");
 		}
 	}
 	

@@ -27,12 +27,12 @@ public class CLIPraser {
 		
 		Option user = OptionBuilder.withArgName("User")
                 .hasArg()
-                .withDescription("User der am Server vorhanden ist")
+                .withDescription("Benutzer mit dem man sich auf der Datenbank anmelden möchte")
                 .create("u");
 		
-		Option pw = OptionBuilder.withArgName("Password")
+		Option pw = OptionBuilder.withArgName("Passwort")
                 .hasArg()
-                .withDescription("Password")
+                .withDescription("Passwort")
                 .create("p");
 		
 		Option db = OptionBuilder.withArgName("Datenbank")

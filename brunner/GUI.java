@@ -147,11 +147,11 @@ public class GUI extends JPanel {
 			table.setModel(model);
 
 		}catch (SQLException e) {
-			System.err.println("Fehler beim TextArea");
+			System.err.println("Fehler beim TextArea -:- GUI:anzeigen");
 		}catch (ArrayIndexOutOfBoundsException e) {
-			System.err.println("Fehler ArrayIndexOutOfBounds");
+			//System.err.println("Fehler ArrayIndexOutOfBounds -:- GUI:anzeigen");
 		}catch (NullPointerException e) {
-			System.err.println("Fehler NullPointerException");
+			//System.err.println("Fehler NullPointerException -:- GUI:anzeigen");
 		}
 	}
 
@@ -163,10 +163,10 @@ public class GUI extends JPanel {
 		
 		ds.setServername(server.getText());
 		ds.setDatabase(db.getText());
-		ds.setUser(db.getText());
+		ds.setUser(user.getText());
 		ds.setPassword(pw.getText());
 
-		this.c= new Connect();
+		this.c= new Connect(ds);
 	}
 
 	/**
