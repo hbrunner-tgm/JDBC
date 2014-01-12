@@ -8,8 +8,8 @@ import java.util.*;
  */
 public class Check {
 	
-	private String[] ja= {"select", "show", "describe", "desc"}, 
-					 nein= {"insert", "update", "delete", "alter"};
+	private String[] ja= {"select", "show", "describe", "desc"}, //Erlaubte SQL-Befehle
+					 nein= {"insert", "update", "delete", "alter", "drop"}; //Nicht erlaubte Werte
 
 	private String errom;
 	
@@ -22,7 +22,7 @@ public class Check {
 	/**
 	 * Checkt den SQL- Befehl das mit keine inserts oder andere Befehle eingegeben werden.
 	 * @param query der SQL- Befehl
-	 * @return ob es ein gueltiger SQL - Befehl ist.
+	 * @return ob es ein gueltiger SQL - Befehl ist. Bei true ist es einer und bei false ist der Befehl nicht gültig.
 	 */
 	public boolean check(String query) {
 		
