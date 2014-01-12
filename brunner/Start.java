@@ -2,6 +2,9 @@ package brunner;
 
 /**
  * Die Main-Methode die das Programm starten soll.
+ * 
+ * Git-Repository zu dieser Aufgabe: https://github.com/hbrunner-tgm/JDBC
+ * 
  * @author helmuthbrunner
  *
  */

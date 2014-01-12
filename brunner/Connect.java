@@ -8,12 +8,13 @@ import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 /**
- * Stelle eine Verbinung zu einem Server her.
+ * Stellt eine Verbinung zu einer Datenbank her.
  * @author helmuthbrunner
  */
 
 public class Connect {
 
+	//Atributte
 	private Connection c;
 	private DataSource source;
 	private MysqlDataSource mds;
@@ -22,6 +23,11 @@ public class Connect {
 
 	/**
 	 * Default-Connection
+	 * 
+	 * Mit	user: root
+	 *		pw: root
+	 *		server: localhost
+	 *		datenbank: flugschule
 	 */
 	public Connect() {      
 		this.newConnection(new DataSource());
@@ -59,6 +65,8 @@ public class Connect {
 		} catch (SQLException e) {
 			String fm="";
 			
+			//Fehlermeldungen die dann augegeben werden:
+			
 			if(e.getMessage().indexOf("Host")!=-1)
 				fm+= "\n" + "Hostname("+source.getServername()+") konnte nicht gefunden werden.";
 			if(e.getMessage().substring(0, 16).equals("Unknown database"))
@@ -85,7 +93,10 @@ public class Connect {
 	}
 
 	/**
-	 * Gibt das Erebniss eines Selectes aus.
+	 * Gibt das Erebniss eines SQL-Statements aus.
+	 * 
+	 * Bei einem Feheler in dem Satement wird die Fehlermeldung von SQL ausgeben.
+	 * 
 	 * @param query der Select-Befehl
 	 * @return ein ResultSet Objekt
 	 */
@@ -94,21 +105,20 @@ public class Connect {
 			s= c.createStatement();
 			rs= s.executeQuery(query);
 		}catch (SQLException e) {
-			//System.err.println("SQL-Exception -:- Connect:query");
 			String str= e.getMessage();
 			int i= (int) str.length()/2;
 			JOptionPane.showMessageDialog(null, str.subSequence(0, i)+"\n"+str.subSequence(i, e.getMessage().length()));
 		}catch (NullPointerException e) {
-			
 		}
 
 		return rs;
 	}
 
 	/**
-	 * Schließt die Verbingung
+	 * Schließt die Verbingung zur Datenbank
 	 */
 	public void exit() {
+		//TODO Nicht implementiert
 		try {
 			c.close();
 			c= null;
@@ -118,8 +128,8 @@ public class Connect {
 	}
 	
 	/**
-	 * Gibt die aktuellen Parameter fuer die aktuelle Verbindung zurueck.
-	 * @return das Objekt die aktuellen Parameter enthaelt.
+	 * Gibt die aktuellen Parameter für die aktuelle Verbindung zurück.
+	 * @return das Objekt die aktuellen Parameter enthält.
 	 */
 	public DataSource getSource() {
 		return this.source;

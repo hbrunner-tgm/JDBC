@@ -12,7 +12,8 @@ import org.apache.commons.cli.*;
  */
 public class CLIPraser {
 	
-	private String[] args;// Die Argument die aus der Konsole aus uebergeben wurden
+	//Attribute
+	private String[] args;
 	private Options options;
 
 	public CLIPraser(String[] args) {
@@ -68,22 +69,24 @@ public class CLIPraser {
         		String p= line.getOptionValue("p");
         		String d= line.getOptionValue("d");
         		
+        		//Übergeben der Paramter an die DataSource-Klasse
         		DataSource source = new DataSource(h, u, p, d);
-        		Connect c= new Connect(source);
-        		Frame f= new Frame(c);
+        		Connect c= new Connect(source); //Aufbauen einer neuen Verbindung
+        		Frame f= new Frame(c); //Das Fenster erzeugen
         		
         	}else {
-        		this.printHelp();
+        		this.printHelp(); //Ausgabe der Hilfe
         	}
         	
         }catch(ParseException exc) {
-        	this.printHelp();
+        	this.printHelp(); //Ausgabe der Hilfe
         }
 		
 	}
 	
 	/**
-	 * Gibt die Hilfe aus.
+	 * Die Hilfe-Methode.
+	 * Ausgabe eine kurze Beschreibung wie man die Parameter korrekt übergibt.
 	 */
 	public void printHelp() {
 		HelpFormatter hf = new HelpFormatter();

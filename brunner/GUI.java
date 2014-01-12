@@ -26,6 +26,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class GUI extends JPanel {
 
+	//Atributte
 	private JTextField server, db, user, pw, query;
 	private Connect c;
 	private JButton button, reconnect;
@@ -39,8 +40,8 @@ public class GUI extends JPanel {
 	private DefaultTableModel model;
 
 	/**
-	 * Ein Konsturkor fuer die GUI
-	 * @param c
+	 * Ein Konstruktor für die GUI
+	 * @param c die Verbindung zur Datenbank
 	 */
 	public GUI(Connect c) {
 		super();		
@@ -51,7 +52,7 @@ public class GUI extends JPanel {
 		check= new Check();
 		table= new JTable();
 
-		//----Button----
+		//----Buttons----
 		button= new JButton("Abschicken");
 		button.addActionListener(new ActionHandler());
 
@@ -88,7 +89,7 @@ public class GUI extends JPanel {
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		scrollPane = new JScrollPane(table);
 		
-		//--- Hinzufuegen der Komponenten ---
+		//--- Hinzufuegen der einzelnen Komponenten ---
 		panel.add(lserver);
 		panel.add(server);
 		panel.add(ldb);
@@ -147,12 +148,14 @@ public class GUI extends JPanel {
 			table.setModel(model);
 
 		}catch (SQLException e) {
-			System.err.println("Fehler beim TextArea -:- GUI:anzeigen");
+			//System.err.println("Fehler beim TextArea -:- GUI:anzeigen");
 		}catch (ArrayIndexOutOfBoundsException e) {
 			//System.err.println("Fehler ArrayIndexOutOfBounds -:- GUI:anzeigen");
 		}catch (NullPointerException e) {
 			//System.err.println("Fehler NullPointerException -:- GUI:anzeigen");
 		}
+		//TODO Das Exception-Handling noch richtig behandeln
+		
 	}
 
 	/**

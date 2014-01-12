@@ -25,7 +25,7 @@ public class Check {
 	 * @param query der SQL- Befehl
 	 * @return ob es ein gueltiger SQL - Befehl ist.
 	 */
-	public boolean check(String query) {//TODO Macht noch nichts
+	public boolean check(String query) {
 		
 		if(query.contains(";")==true) {
 			this.errom="Bitte keinen Strichpunkt angeben!";
