@@ -1,0 +1,96 @@
+commit 6d0ce913698ee3000494c263090ee91241084569
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Sun Jan 12 06:30:31 2014 +0100
+
+    Finalversion
+
+commit df1896b8fc2d2a0cfe6370ea4795d11ba3debe26
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Sun Jan 12 02:06:41 2014 +0100
+
+    Check.java editiert
+
+commit 185509f423b3c43cd70822a923258a07d2befa82
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Sun Jan 12 01:54:49 2014 +0100
+
+    Kommentare hinzugefügt
+
+commit fcf4f789b3e97e825991abffcb6b56831c229c01
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Sun Jan 12 01:10:46 2014 +0100
+
+    Fehlermeldung werden anzeigt bei falschen eingaben. Die Verbindung erneut aufbauen funktioniert.
+
+commit aa2d3940a31a89cbe5524b7cd6bfba3b292158b3
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Thu Jan 9 02:45:38 2014 +0100
+
+    Readme angepasst
+
+commit 54ef7ec3a52fcf23092b566b47f8a80289de4d95
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Thu Jan 9 02:25:08 2014 +0100
+
+    In die Readme ein klein Beschreibung angefügt
+
+commit 24996c770c9bcc5c3d9a9ea2c6d2cb6724283823
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Thu Jan 9 02:21:15 2014 +0100
+
+    Sollte Jetzt passen
+
+commit 2bb9b87fa960069b1993e1c7afe9b38f4d2668d0
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Thu Jan 9 02:14:18 2014 +0100
+
+    Classes Raus jetzt
+
+commit d9173820dfdf9b8518bb0bd894dcf9dd9e2691d4
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Thu Jan 9 02:08:40 2014 +0100
+
+    Alles Classes Raus
+
+commit 514c5f99ad1bd45ce9610c340e020fc25ed2100d
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Thu Jan 9 01:15:42 2014 +0100
+
+    Save
+
+commit f2024d5915887c7b19bf4d69f42a235c73b5032a
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Thu Jan 9 00:58:35 2014 +0100
+
+    Exception Handling
+
+commit 3a6b9d64ab6c5f58911f707b5f65c790bb6bff27
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Thu Jan 9 00:06:33 2014 +0100
+
+    Klasse Frame.java
+
+commit cab0bbea9d8ebe2b9aae2ed99d8ea4d99887a265
+Merge: 1aea2ad ab8dd2f
+Author: Helmuth Brunner <hbrunner@student.tgm.ac.at>
+Date:   Sat Jan 11 12:24:25 2014 +0100
+
+    Merge branch 'master' of https://github.com/hbrunner-tgm/JDBC
+
+commit 1aea2ad8d1bd65c607e352c567e1a6431d2fe7e2
+Author: Helmuth Brunner <hbrunner@student.tgm.ac.at>
+Date:   Sat Jan 11 12:22:49 2014 +0100
+
+    Jetzt mal ein push
+
+commit fd4eb1a3488dcfb2bf6dd9ffd68d4317157cccc5
+Author: Helmuth Brunner <Helmuth.B@gmx.at>
+Date:   Wed Nov 20 23:19:18 2013 +0100
+
+    all
+
+commit ab8dd2f64f7421f5289e070724d0998d19dbd873
+Author: hbrunner-tgm <hbrunner@student.tgm.ac.at>
+Date:   Wed Nov 20 14:07:28 2013 -0800
+
+    Initial commit
